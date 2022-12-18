@@ -75,8 +75,8 @@ class ToDoRepoTest {
 
         List<ToDo> actual = repo.putToDo(new ToDo("1","meeting",Status.OPEN));
         Assertions.assertEquals(List.of(
-                new ToDo("2", "shopping",Status.OPEN),
-                new ToDo("1","meeting",Status.OPEN)
+                new ToDo("1","meeting",Status.OPEN),
+                new ToDo("2", "shopping",Status.OPEN)
         ),actual);
     }
 

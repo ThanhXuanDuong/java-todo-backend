@@ -13,6 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 @Repository
 public class ToDoRepo {
+
+    //private List<ToDo> toDos = new ArrayList<>();
+
     private List<ToDo> toDos = new ArrayList<>(List.of(
             new ToDo("1","go to market",Status.OPEN),
             new ToDo("2", "shopping",Status.OPEN)
@@ -36,13 +39,16 @@ public class ToDoRepo {
     }
 
     public List<ToDo> putToDo(ToDo newToDo) {
+        List<ToDo> newList =new ArrayList<>();
+
         for (ToDo t : toDos){
-            if (t.getId().equals(newToDo.getId())){
-                toDos.remove(t);
-                toDos.add(newToDo);
-                break;
+            if (!t.getId().equals(newToDo.getId())){
+                newList.add(t);
+            } else {
+                newList.add(newToDo);
             }
         }
+        toDos = newList;
         return toDos;
     }
 
